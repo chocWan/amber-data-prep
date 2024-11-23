@@ -59,9 +59,10 @@ def validate_jsonl_file(filename):
     print(f"====================")
 
 if __name__ == "__main__":
-    validate_jsonl_file('bad_sample.jsonl')
-    validate_jsonl_file('good_sample.jsonl')
+    # validate_jsonl_file('bad_sample.jsonl')
+    # validate_jsonl_file('good_sample.jsonl')
 
+    validate_jsonl_file('./refinedpajama_llama_json/redpajama_v1/arxiv/train.jsonl')
     # validate_jsonl_file('./redpajama_v1_llama_json_merge/arxiv/train.jsonl')
     # validate_jsonl_file('./redpajama_v1_llama_json_merge/book/train.jsonl')
     # validate_jsonl_file('./redpajama_v1_llama_json_merge/c4/train.jsonl')

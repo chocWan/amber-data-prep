@@ -27,6 +27,8 @@ from torch.utils.data import IterableDataset
 from transformers import PreTrainedTokenizerBase
 import json
 
+tokenizer_path = "./tokenizer"
+
 class ConcatTokensDataset(IterableDataset):
 
     def __init__(
@@ -118,9 +120,9 @@ subfolders = [
 #     'falcon-refinedweb/data'
 # ]
 
-# starcoder
-with open('starcoder-lang.list') as flist:
-    subfolders += [f"starcoderdata/{l.strip()}" for l in flist.readlines()]
+# # starcoder
+# with open('starcoder-lang.list') as flist:
+#     subfolders += [f"starcoderdata/{l.strip()}" for l in flist.readlines()]
 
 
 print(subfolders)
@@ -314,7 +316,8 @@ def process_sub(sub, args):
 
     if args.concat_tokens is not None:
         mode = ConcatMode.CONCAT_TOKENS
-        tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
+        # tokenizer = AutoTokenizer.from_pretrained(args.tokenizer)
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
         # we will enforce length, so suppress warnings about sequences too long for the model
         tokenizer.model_max_length = int(1e30)
         columns = {"tokens": "bytes"}

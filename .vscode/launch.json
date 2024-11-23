@@ -24,6 +24,28 @@
                 "--eos_text",
                 "</s>"
             ]
+        },
+        {
+            "name": "Python: Debug mix_and_split",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/mix_and_split.py", // 脚本路径
+            "console": "integratedTerminal", // 使用集成终端
+            "env": {
+                "PYTHONPATH": "/home/xtest/miniforge3/envs/llm-360"
+            },
+            "args": [
+                "--input_root",
+                "/data/code/myfork/amber-data-prep",
+                "--output_root",
+                "redpajama_v1_llama_json_merged_360",
+                "--subfolders",
+                "refinedpajama_llama_json/redpajama_v1/arxiv",
+                "--num_split",
+                "360",
+                "--num_valid_samples_per_subfolder",
+                "10240"
+            ]
         }
     ]
 }

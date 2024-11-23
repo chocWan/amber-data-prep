@@ -22,7 +22,7 @@ def main(input_root, output_root, subfolders, num_split, num_valid_samples_per_s
 
     subfolders=subfolders.split(',')
     for subfolder in subfolders:
-        subfolder_input_file = os.path.join(input_root, subfolder,'train_labeled.jsonl')
+        subfolder_input_file = os.path.join(input_root, subfolder,'train.jsonl')
 
         # Calculate total lines in the file
         print(f"Counting lines in: {subfolder}")
@@ -58,6 +58,7 @@ def main(input_root, output_root, subfolders, num_split, num_valid_samples_per_s
 
         output_file_pool = [ open(os.path.join(train_dir, f'train_{output_split_idx}.jsonl'), 'a') for output_split_idx in range(num_split)]
 
+        os.makedirs(os.path.dirname(valid_filename), exist_ok=True)
         out_valid_file = open(valid_filename,'w')
         out_train_file = None
         with open(subfolder_input_file) as fin:
