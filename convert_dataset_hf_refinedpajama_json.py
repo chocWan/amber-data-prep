@@ -99,11 +99,11 @@ class ConcatTokensDataset(IterableDataset):
 # arxiv  book  c4  github  stackexchange   wikipedia
 subfolders = [
     'redpajama_v1/arxiv',
-    'redpajama_v1/book',
-    'redpajama_v1/c4',
-    'redpajama_v1/github',
-    'redpajama_v1/stackexchange',
-    'redpajama_v1/wikipedia',
+    # 'redpajama_v1/book',
+    # 'redpajama_v1/c4',
+    # 'redpajama_v1/github',
+    # 'redpajama_v1/stackexchange',
+    # 'redpajama_v1/wikipedia',
 
     # 2019-30  2020-05  2021-04  2022-05  2023-06
     # 'redpajama_v2/common_crawl/2019-30',
@@ -113,10 +113,10 @@ subfolders = [
     # 'redpajama_v2/common_crawl/2023-06',
 ]
 
-# falcon-refinedweb
-subfolders += [
-    'falcon-refinedweb/data'
-]
+# # falcon-refinedweb
+# subfolders += [
+#     'falcon-refinedweb/data'
+# ]
 
 # starcoder
 with open('starcoder-lang.list') as flist:
@@ -325,6 +325,7 @@ def process_sub(sub, args):
 
     hf_split = "train"
 
+    print(f"args.input_root:{args.input_root}")
     # Get samples
     dataset = build_hf_dataset(
         dataset_name=args.input_root,

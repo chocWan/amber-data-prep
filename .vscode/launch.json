@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug convert_dataset_hf_refinedpajama_json",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/convert_dataset_hf_refinedpajama_json.py", // 脚本路径
+            "console": "integratedTerminal", // 使用集成终端
+            "env": {
+                "PYTHONPATH": "/home/xtest/miniforge3/envs/llm-360"
+            },
+            "args": [
+                "--input_root",
+                "/data/code/myfork/amber-data-prep",
+                "--out_root",
+                "refinedpajama_llama_json",
+                "--concat_tokens",
+                "2049",
+                "--tokenizer",
+                "huggyllama/llama-7b",
+                "--num_workers",
+                "64",
+                "--eos_text",
+                "</s>"
+            ]
+        }
+    ]
+}
